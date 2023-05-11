@@ -1,9 +1,10 @@
 const express = require('express');
 const app = express();
+const routes = require('./src/configs/router');
+const error = require('./src/configs/error/errorRoute');
 
-app.get('/', (req, res) => {
-    res.json({ "message": 'Hello World!' });
-});
+app.use(routes);
+app.use(error.erro404);
 
 app.listen(3000, () => {
     console.log('API is running.');

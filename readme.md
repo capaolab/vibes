@@ -27,7 +27,7 @@ Vides/
 
 ## Modo de uso
 
-- Crie um arquivo `.env` no diretório root da api com as seguintes configurações:
+- Crie arquivo `.env` no diretório root do projeto com as seguintes configurações:
 
 ```text
 API_PORT=<8000>
@@ -36,7 +36,7 @@ DB_USER=<user>
 DB_PASSWORD=<senha>
 ```
 
-- run: `docker compose up` ou `docker-compose up`
+- No diretório root do projeto, rode o comando: `docker compose up` ou `docker-compose up` 
 
 
 ## Uso do Git

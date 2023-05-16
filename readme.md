@@ -25,7 +25,7 @@ Vides/
 
 - [Docker](https://www.docker.com/)
 
-## Modo de uso do Git
+## Modo de uso
 
 - Crie um arquivo `.env` no diretório root da api com as seguintes configurações:
 

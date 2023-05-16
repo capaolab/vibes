@@ -1,12 +1,15 @@
-const express = require('express');
+import express from 'express';
+import { API_HOST, API_PORT } from './src/configs/senttings.js';
+import { router } from './src/configs/router.js';
+import { erro404 } from './src/configs/apiController.js';
+
 const app = express();
-const router = require('./src/configs/router');
-const { erro404 } = require('./src/configs/apiController');
 
 app.use(router);
 app.use(erro404);
 
-app.listen(3000, () => {
+
+app.listen(API_PORT, () => {
     console.log('API is running.');
-    console.log('Access http://localhost:3000');
+    console.log(`Access http://${API_HOST}:${API_PORT}/api/v1`);
 });

@@ -1,10 +1,9 @@
-const express = require('express');
-const router = express.Router();
-const { healthChecker } = require('./apiController');
+import express from 'express';
+import { healthChecker } from './apiController.js';
+
+export const router = express.Router();
 
 
 // Default Rotes
 router.get('/api/v1/', healthChecker);
 
-
-module.exports = router;

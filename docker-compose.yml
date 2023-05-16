@@ -1,0 +1,33 @@
+version: '3.4'
+services:
+    vibes_db:
+        image: mongo:4.4.6
+        container_name: vibes_db
+        restart: always
+        environment:
+            MONGO_INITDB_ROOT_USERNAME: ${DB_USER}
+            MONGO_INITDB_ROOT_PASSWORD: ${DB_PASSWORD}
+        ports:
+            - 27017:27017
+        healthcheck:
+            test: ["CMD-SHELL", "mongo", "--eval", "db.adminCommand({ping: 1})"]
+            interval: 10s
+            timeout: 5s
+            retries: 5
+    vibes_api:
+        build:
+            context: ./vibes_api
+        container_name: vibes_api
+        ports:
+            - "${API_PORT}:${API_PORT}"
+        volumes:
+            - ./vibes_api:/app
+        environment:
+            API_HOST: ${API_HOST}
+            API_PORT: ${API_PORT}
+            DB_SERVER: vibes_db
+            DB_USER: ${DB_USER}
+            DB_PASSWORD: ${DB_PASSWORD}
+        depends_on:
+            vibes_db:
+                condition: service_healthy

@@ -1,6 +1,6 @@
 # Vibes App
 
-Um aplicativo para mapear sserviços turísticos no Vale do Capão, Bahia
+Aplicativo para mapear sserviços turísticos no Vale do Capão, Bahia
 
 ## Índice
 

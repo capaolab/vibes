@@ -6,7 +6,8 @@
   "main": "app.js",
   "scripts": {
     "dev": "NODE_ENV=development nodemon app.js",
-    "start": "NODE_ENV=production nodemon app.js"
+    "start": "NODE_ENV=production nodemon app.js",
+    "doc": "jsdoc -c jsdoc.config.json -d docs"
   },
   "repository": {
     "type": "git",

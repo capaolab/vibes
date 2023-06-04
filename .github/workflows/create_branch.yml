@@ -1,10 +1,10 @@
-name: Create Branch on Issue Creation
+name: Setup Branch on Issue Creation
 on:
   issues:
     types: [opened]
 
 jobs:
-  create-branch:
+  setup-branch:
     runs-on: ubuntu-latest
     
     steps:
@@ -16,3 +16,15 @@ jobs:
         branch_name="issue-${{ github.event.issue.number }}"
         git checkout -b "$branch_name"
         git push -u origin "$branch_name"
+
+    - name: Add branch reference to issue
+      uses: peter-evans/add-issue-comment@v1
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        issue-number: ${{ github.event.issue.number }}
+        message: |
+          A branch has been created for this issue.
+
+          Branch: ${{ github.event.issue.number }}
+
+          Please review and provide updates as necessary.
